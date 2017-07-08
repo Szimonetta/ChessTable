@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by Szimonetta (http://jsbin.com/kibugu/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="sakk tábla">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+ <canvas id="myCanvas" height="300" width="450" style="border: 1px solid black"></canvas>
+<script id="jsbin-javascript">
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+
+
+function drawCheckeredPattern (row,col) {
+  var ch=canvas.height;
+  var cw=canvas.width;
+  var h=ch/row;
+  var w=cw/col;
+
+  for (i=0; i<row; i++) {
+    for (j=0; j<col; j++) {
+      if ((i+j)%2===0) {
+        context.fillStyle='white';
+      } else {
+        context.fillStyle='black';
+      }
+      context.fillRect(i*w,j*h,w,h);
+    }
+  }
+}
+
+drawCheckeredPattern(8,8);
+</script>
+</body>
+</html>
